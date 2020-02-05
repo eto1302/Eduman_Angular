@@ -1,0 +1,38 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AbsencesModule } from './absences/absences.module';
+import { EventsModule } from './events/events.module';
+import { GradesModule } from './grades/grades.module';
+import { FeesModule } from './fees/fees.module';
+import { ReflectionsModule } from './reflections/reflections.module';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,  
+    CoreModule,
+    AbsencesModule,
+    EventsModule,
+    GradesModule,
+    FeesModule,
+    ReflectionsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
