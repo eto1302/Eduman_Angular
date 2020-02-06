@@ -1,9 +1,16 @@
-<div class="mx-auto jumbotron mt-5 eduman-secbg-color">
+<div *ngIf='!isLogged' class="mx-auto jumbotron mt-5 eduman-secbg-color">
     <h1 class="text-center">Eduman - Your Education Manager</h1>
     <div class="col-sm">
-        <h3 class="text-center"><a class="nav-link-white text-primary" routerLink="/login">Login</a> to see your education statistics</h3>
+        <h3 class="text-center"><a class="nav-link-white text-primary" routerLink="/login">Login</a> to see your
+            education statistics</h3>
     </div>
     <div class="col-sm">
-        <h3 class="text-center"><a class="nav-link-white text-primary" routerLink="/register">Register</a> if you don't have an account.</h3>
+        <h3 class="text-center"><a class="nav-link-white text-primary" routerLink="/register">Register</a> if you don't
+            have an account.</h3>
     </div>
+</div>
+
+<div *ngIf='isLogged' class="jumbotron ml-5  mr-5 mt-5 eduman-secbg-color">
+<h1 class="text-center">Welcome, {{currentRole}} - {{currentFullName}}</h1>
+    <h3 style="color: black" class="text-center">Enjoy your work.</h3>
 </div>

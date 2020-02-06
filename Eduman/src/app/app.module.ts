@@ -13,6 +13,7 @@ import { EventsModule } from './events/events.module';
 import { GradesModule } from './grades/grades.module';
 import { FeesModule } from './fees/fees.module';
 import { ReflectionsModule } from './reflections/reflections.module';
+import { ConfirmUserComponent } from './confirm-user/confirm-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReflectionsModule } from './reflections/reflections.module';
     NotFoundComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConfirmUserComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { AllCriticismsComponent } from './all-criticisms/all-criticisms.component';
 import { AllComplimentsComponent } from './all-compliments/all-compliments.component';
+import { AuthGuard } from '../auth-guard';
 
 const routes: Routes = [
     {
@@ -11,23 +12,43 @@ const routes: Routes = [
             {
                 path: '',
                 pathMatch: 'full',
-                redirectTo: '/reflections/all'
+                redirectTo: '/reflections/allCompliments'
             },
             {
                 path:'allCriticisms',
-                component: AllCriticismsComponent
+                component: AllCriticismsComponent,
+                canActivate: [AuthGuard],
+                data: {
+                    isLogged: true,
+                    role: ['Student', 'Teacher']
+                }
             },
             {
                 path:'allCompliments',
-                component: AllComplimentsComponent
+                component: AllComplimentsComponent,
+                canActivate: [AuthGuard],
+                data: {
+                    isLogged: true,
+                    role: ['Student', 'Teacher']
+                }
             },
             {
                 path:'create',
-                component: CreateComponent
+                component: CreateComponent,
+                canActivate: [AuthGuard],
+                data: {
+                    isLogged: true,
+                    role: ['Teacher']
+                }
             },
             {
                 path:'details/:id',
-                component: DetailsComponent
+                component: DetailsComponent,
+                canActivate: [AuthGuard],
+                data: {
+                    isLogged: true,
+                    role: ['Student', 'Teacher']
+                }
             }
         ]
     }
