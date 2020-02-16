@@ -4,6 +4,7 @@ import { CreateComponent } from './create/create.component';
 import { AllComponent } from './all/all.component';
 import { EventsRoutingModule } from './events-routing.module';
 import { DetailsComponent } from './details/details.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { DetailsComponent } from './details/details.component';
   declarations: [CreateComponent, AllComponent, DetailsComponent],
   imports: [
     CommonModule,
-    EventsRoutingModule
+    EventsRoutingModule,
+    FormsModule
   ]
 })
 export class EventsModule { }

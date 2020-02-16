@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbsenceService } from 'src/app/services/abences.service';
 
 @Component({
   selector: 'app-all',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllComponent implements OnInit {
 
-  constructor() { }
+  constructor(private absenceService: AbsenceService) { }
 
   ngOnInit() {
+    this.absenceService.load();
+  }
+
+  get absences(){ 
+    return this.absenceService.absences;
   }
 
 }

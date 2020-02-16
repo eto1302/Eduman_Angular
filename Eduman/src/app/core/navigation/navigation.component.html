@@ -4,7 +4,7 @@
             <a class="navbar-brand font-weight-bold black" routerLink="">Eduman</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul *ngIf="isLogged && currentUserRole === 'Student' " class="nav navbar-nav mx-auto">
+            <ul *ngIf='isLogged && currentUserRole === "Student"' class="nav navbar-nav mx-auto">
                 <li class="nav-item dropdown" style="list-style:none">
                     <a class="dropdown-toggle font-weight-bold nav-link black" data-toggle="dropdown" href='#'>
                         Absences
@@ -48,11 +48,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" (click)="logout()">Logout</a>
+                    <a class="nav-link font-weight-bold black" (click)="logout()" routerLink=''>Logout</a>
                 </li>
 
             </ul>
-            <ul *ngIf="isLogged && currentUserRole === 'Teacher' " class="nav navbar-nav mx-auto">
+            <ul *ngIf='isLogged && currentUserRole === "Teacher"' class="nav navbar-nav mx-auto">
                 <li class="nav-item dropdown" style="list-style:none">
                     <a class="dropdown-toggle font-weight-bold nav-link black" data-toggle="dropdown" href='#'>
                         Absences
@@ -101,43 +101,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" (click)="logout()">Logout</a>
-                </li>
-
-            </ul>
-            <ul *ngIf="isLogged && currentUserRole === 'Principal' " class="nav navbar-nav mx-auto">
-                <li class="nav-item dropdown" style="list-style:none">
-                    <a class="dropdown-toggle font-weight-bold nav-link black" data-toggle="dropdown" href='#'>
-                        Absences
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" routerLink="/absences/all">All Absences</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown" style="list-style:none">
-                    <a class="dropdown-toggle font-weight-bold nav-link black" data-toggle="dropdown" href='#'>
-                        Events
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" routerLink="/events/all">All Events</a>
-                        <a class="dropdown-item" routerLink="/events/create">Create Event</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown" style="list-style:none">
-                    <a class="dropdown-toggle font-weight-bold nav-link black" data-toggle="dropdown" href='#'>
-                        Fees
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" routerLink="/fees/all">All Fees</a>
-                        <a class="dropdown-item" routerLink="/fees/create">Create Fee</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-weight-bold black" routerLink="/confirmUser">Confirm User</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link font-weight-bold black" (click)="logout()" routerLink=''>Logout</a>
                 </li>
+
             </ul>
         </div>
     </div>

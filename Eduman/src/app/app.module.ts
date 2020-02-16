@@ -13,26 +13,32 @@ import { EventsModule } from './events/events.module';
 import { GradesModule } from './grades/grades.module';
 import { FeesModule } from './fees/fees.module';
 import { ReflectionsModule } from './reflections/reflections.module';
-import { ConfirmUserComponent } from './confirm-user/confirm-user.component';
-
+import {FormsModule} from '@angular/forms'
+import { SharedModule } from './shared/shared.module';
+import { KinveyModule } from 'kinvey-angular-sdk';
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
-    ConfirmUserComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,  
     CoreModule,
     AbsencesModule,
     EventsModule,
     GradesModule,
     FeesModule,
-    ReflectionsModule
+    ReflectionsModule,
+    FormsModule,
+    KinveyModule.init({
+      appKey: 'kid_ByHi9m4XL',
+      appSecret: 'dc1ba19f136b49508eff8e13fd391556'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from 'kinvey-angular-sdk';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +8,14 @@ import { UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  get isLogged() { return this.userService.isLogged; }
-  get currentFullName() { return this.userService.currentFullName; }
-  get currentRole() {return this.userService.currentRole;}
+  get isLogged() { return this.userService.getActiveUser() != null}
+  get currentFullName() {return this.userService.getActiveUser().data.firstName + " " + this.userService.getActiveUser().data.lastName;}
+  get currentRole() {return this.userService.getActiveUser().data.Role;}
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    
   }
 
 }

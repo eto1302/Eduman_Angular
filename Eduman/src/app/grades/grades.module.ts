@@ -4,6 +4,7 @@ import { CreateComponent } from './create/create.component';
 import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
 import { GradesRoutingModule } from './grades-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { GradesRoutingModule } from './grades-routing.module';
   declarations: [CreateComponent, AllComponent, DetailsComponent],
   imports: [
     CommonModule,
-    GradesRoutingModule
+    GradesRoutingModule,
+    FormsModule
   ]
 })
 export class GradesModule { }

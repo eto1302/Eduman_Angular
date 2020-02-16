@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ConfirmUserComponent } from './confirm-user/confirm-user.component';
 import { AuthGuard } from './auth-guard';
 
 const routes: Routes = [    
@@ -28,15 +27,6 @@ const routes: Routes = [
         data: {
             isLogged: false,
             role: [undefined]
-        }
-    },
-    {
-        path: 'confirmUser',
-        component: ConfirmUserComponent,
-        canActivate: [AuthGuard],
-        data: {
-            isLogged: true,
-            role: ['Principal']
         }
     },
     {

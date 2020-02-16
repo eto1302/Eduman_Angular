@@ -4,23 +4,23 @@
     <thead>
         <tr>
             <th scope="col">Student Name</th>
-            <th scope="col">Subject</th>
+            <th scope="col">Type</th>
             <th scope="col">Teacher Name</th>
-            <th scope="col">Date Absent</th>
+            <th scope="col">Due Date</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
 
-    
-        <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="btn eduman-secbg-color text-white" routerLink='/events/details/id'>Details</a></td>
+
+        <tr *ngFor="let event of events">
+            <th scope="row">{{event.firstName}} {{event.lastName}}</th>
+            <td>{{event.type}}</td>
+            <td>{{event.teacherFullName}}</td>
+            <td>{{event.eventDate}}</td>
+            <td><a class="btn eduman-secbg-color text-white" [routerLink]="[ '/events/details',event._id ]">Details</a></td>
         </tr>
-        
-    
+
+
     </tbody>
 </table>

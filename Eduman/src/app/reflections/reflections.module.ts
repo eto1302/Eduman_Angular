@@ -5,6 +5,7 @@ import { DetailsComponent } from './details/details.component';
 import { AllComplimentsComponent } from './all-compliments/all-compliments.component';
 import { AllCriticismsComponent } from './all-criticisms/all-criticisms.component';
 import { ReflectionsRoutingModule } from './reflections-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { ReflectionsRoutingModule } from './reflections-routing.module';
   declarations: [CreateComponent, DetailsComponent, AllComplimentsComponent, AllCriticismsComponent],
   imports: [
     CommonModule,
-    ReflectionsRoutingModule
+    ReflectionsRoutingModule,
+    FormsModule
   ]
 })
 export class ReflectionsModule { }

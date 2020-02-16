@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReflectionsService } from 'src/app/services/reflections.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private reflectionsService: ReflectionsService, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() {   
+
+  }
+
+  get reflection(){     
+    return this.reflectionsService.getDetails(this.activatedRoute.snapshot.params.id);
   }
 
 }

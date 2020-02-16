@@ -4,6 +4,7 @@ import { AllComponent } from './all/all.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { FeesRoutingModule } from './fees-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { FeesRoutingModule } from './fees-routing.module';
   declarations: [AllComponent, CreateComponent, DetailsComponent],
   imports: [
     CommonModule,
-    FeesRoutingModule
+    FeesRoutingModule,
+    FormsModule
   ]
 })
 export class FeesModule { }

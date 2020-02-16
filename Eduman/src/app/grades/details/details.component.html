@@ -1,19 +1,18 @@
-<h1 class="text-center">Subject</h1>
-<h2 class="text-center">DateCreated</h2>
+<h1 class="text-center">{{grade.subject}}</h1>
 <hr class="hr-2 bg-dark" />
 <div class="half-width mx-auto d-flex justify-content-between">
-    <h3 class="text-center">Student</h3>
-    <h3 class="text-center">Teacher</h3>
+    <h3 class="text-center">{{grade.studentFullName}}</h3>
+    <h3 class="text-center">{{grade.teacherFullName}}</h3>
 </div>
 <hr class="hr-2 bg-dark" />
 <div class="half-width mx-auto d-flex justify-content-between">
-    <h3 class="text-center">Value</h3>
-    <h3 class="text-center">Subject</h3>
+    <h3 class="text-center">{{grade.value}}</h3>
+    <h3 class="text-center">{{grade.subject}}</h3>
 </div>
 <hr class="hr-2 bg-dark" />
 <h3 class="text-center">Description</h3>
 <p class="text-center mt-4">
-    Description
+    {{grade.description}}
 </p>
 <hr class="hr-2 bg-dark" />
 <h3 class="text-center">Actions</h3>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FeeService } from 'src/app/services/fees.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private feeService: FeeService, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() {   
+
+  }
+
+  get fee(){     
+    return this.feeService.getDetails(this.activatedRoute.snapshot.params.id);
   }
 
 }

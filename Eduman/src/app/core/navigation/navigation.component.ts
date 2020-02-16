@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'kinvey-angular-sdk';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  get currentUserRole() { return this.userService.currentRole; }
-  get isLogged() { return this.userService.isLogged; }
+  get currentUserRole() { return this.userService.getActiveUser().data.Role; }
+  get isLogged() { return this.userService.getActiveUser() != null}
 
   constructor(private userService: UserService, private router: Router) { }
 

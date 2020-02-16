@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FeeService } from 'src/app/services/fees.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllComponent implements OnInit {
 
-  constructor() { }
+  constructor(private feeService: FeeService, private router: Router) { }
 
   ngOnInit() {
+    this.feeService.load();
   }
+
+  get fees(){ 
+    return this.feeService.fees;
+  }  
 
 }

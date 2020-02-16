@@ -19,7 +19,7 @@ const routes: Routes = [
                 canActivate: [AuthGuard],
                 data: {
                     isLogged: true,
-                    role: ['Student', 'Teacher', 'Principal']
+                    role: ['Student', 'Teacher']
                 }
             },
             {
@@ -28,7 +28,7 @@ const routes: Routes = [
                 canActivate: [AuthGuard],
                 data: {
                     isLogged: true,
-                    role: ['Teacher', 'Principal']
+                    role: ['Teacher']
                 }
             },
             {
@@ -37,7 +37,7 @@ const routes: Routes = [
                 canActivate: [AuthGuard],
                 data: {
                     isLogged: true,
-                    role: ['Student', 'Teacher', 'Principal']
+                    role: ['Student', 'Teacher']
                 }
             }
         ]

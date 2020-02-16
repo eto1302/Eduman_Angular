@@ -1,37 +1,44 @@
 <h1 class="text-center">Create Reflection</h1>
 <hr class="half-width eduman-bg-color hr-2" />
-<form class="mx-auto half-width" method="post" asp-controller="Reflection" asp-action="Create">
+<form class="mx-auto half-width" #createForm="ngForm" (ngSubmit)="handleCreate(createForm.value)">
     <div class="row mx-auto">
         <div class="form-group text-center font-weight-bold col-6 ">
-            <label asp-for="StudentFirstName">Student's First Name</label>
-            <input type="text" asp-for="StudentFirstName" class="form-control" placeholder="Student's First Name">
-            <span asp-validation-for="StudentFirstName" class="text-danger"></span>
+            <label for="StudentFirstName">Student's First Name</label>
+            <input #firstNameInput="ngModel" type="text" required ngModel id="firstName" name="firstName"
+                class="form-control" placeholder="John" [pattern]="textRegex">
+            <p *ngIf="firstNameInput.invalid && firstNameInput.touched">Please enter a valid first name!</p>
         </div>
         <div class="form-group text-center font-weight-bold col-6 ">
-            <label asp-for="StudentLastName">Student's Last Name</label>
-            <input type="text" asp-for="StudentLastName" class="form-control" placeholder="Student's Last Name">
-            <span asp-validation-for="StudentLastName" class="text-danger"></span>
+            <label for="StudentLastName">Student's Last Name</label>
+            <input #lastNameInput="ngModel" type="text" required ngModel id="lastName" name="lastName"
+                class="form-control" placeholder="Doe" [pattern]="textRegex">
+            <p *ngIf="lastNameInput.invalid && lastNameInput.touched">Please enter a valid last name!</p>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
     <div class="row mx-auto">
         <div class="form-group col-12 font-weight-bold text-center">
-            <label asp-for="Description">Description</label>
-            <input type="text" asp-for="Description" class="form-control" placeholder="Description">
-            <span asp-validation-for="Description" class="text-danger"></span>
+            <label for="Description">Description</label>
+            <input #descriptionInput="ngModel" type="text" required ngModel id="description" name="description"
+                class="form-control" placeholder="Description" [pattern]="textRegex">
+            <p *ngIf="descriptionInput.invalid && descriptionInput.touched">Please enter a valid description!</p>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
     <div class="row mx-auto">
         <div class="ml-auto p-2">
-            <label class="radio-inline font-weight-bold"><input type="radio" value="Compliment" checked name="role">Compliment</label>
+            <label class="radio-inline font-weight-bold">
+                <input ngModel type="radio" value="Compliment" checked name="type">Compliment
+            </label>
         </div>
-        <div class ="mr-auto p-2">
-            <label class="radio-inline font-weight-bold"><input type="radio" value="Criticism" name="role">Criticism</label>
+        <div class="mr-auto p-2">
+            <label class="radio-inline font-weight-bold">
+                <input ngModel type="radio" value="Criticism" name="type">Criticism
+            </label>
         </div>
     </div>
     <hr class="eduman-bg-color hr-2" />
     <div class="button-holder d-flex justify-content-center">
-        <button type="submit" class="btn eduman-bg-color">Create</button>
+        <button [disabled]="createForm.invalid" class="btn eduman-bg-color">Create</button>
     </div>
 </form>

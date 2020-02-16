@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { GradeService } from 'src/app/services/grades.service';
+import { UserService } from 'kinvey-angular-sdk';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  styleUrls: ['./create.component.scss', '../../../error-styles.scss']
 })
 export class CreateComponent implements OnInit {
-
-  constructor() { }
+  
+  textRegex = new RegExp('([a-zA-Z]+)');  
 
   ngOnInit() {
+  }
+
+  constructor(private gradeService: GradeService, private userService: UserService) { }  
+
+  handleCreate({ firstName, lastName, value, subject, description }:
+    { firstName: string, lastName: string, value: number, subject: string, description: string}) {
+      let teacherFullName = this.userService.getActiveUser().data.firstName + ' ' + this.userService.getActiveUser().data.lastName;
+      let studentFullName = firstName + ' ' + lastName;
+      let teacherId = this.userService.getActiveUser()._id;
+      this.gradeService.create({firstName, lastName, teacherFullName, value, subject, description, studentFullName, teacherId})
   }
 
 }

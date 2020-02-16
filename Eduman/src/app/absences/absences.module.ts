@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AllComponent } from './all/all.component';
 import { CreateComponent } from './create/create.component';
 import { AbsencesRoutingModule } from './absences-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,8 @@ import { AbsencesRoutingModule } from './absences-routing.module';
   declarations: [AllComponent, CreateComponent],
   imports: [
     CommonModule,
-    AbsencesRoutingModule
+    AbsencesRoutingModule,
+    FormsModule
   ]
 })
 export class AbsencesModule { }

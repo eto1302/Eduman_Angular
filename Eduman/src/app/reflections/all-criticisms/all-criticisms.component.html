@@ -5,17 +5,15 @@
     <tr>
         <th scope="col">Student Name</th>
         <th scope="col">Teacher Name</th>
-        <th scope="col">Date Created</th>
         <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
   
-        <tr>
-            <th scope="row">StudentUsername</th>
-            <td>TeacherUsername</td>
-            <td>DateCreated.ToString("dd/MM/yyyy hh:mm")</td>
-            <td><a class="btn eduman-secbg-color text-white" routerLink='/reflections/details/id'>Details</a></td>
+        <tr  *ngFor="let criticism of criticisms">
+            <th scope="row">{{criticism.studentFullName}}</th>
+            <td>{{criticism.teacherFullName}}</td>
+            <td><a class="btn eduman-secbg-color text-white" [routerLink]="[ '/reflections/details',criticism._id ]">Details</a></td>
         </tr>
 
     
