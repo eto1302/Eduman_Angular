@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataStoreService } from 'kinvey-angular-sdk';
+import { DataStoreService, UserService } from 'kinvey-angular-sdk';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -10,15 +10,25 @@ export class ReflectionsService {
     collection: any;
     reflections: any;
 
-    constructor(datastoreService: DataStoreService, private router: Router) {
+    constructor(datastoreService: DataStoreService, private router: Router, private userService: UserService) {
         this.collection = datastoreService.collection("Reflections");
     }
 
     load() {
-        this.collection.find()
+        if (this.userService.getActiveUser().data.Role === "Teacher") {
+            this.collection.find()
+                .subscribe((entities) => {
+                    this.reflections = entities.filter(e => e.teacherFullName ===
+                        (this.userService.getActiveUser().data.firstName + ' ' + this.userService.getActiveUser().data.lastName));
+                });
+        }
+        else if (this.userService.getActiveUser().data.Role === "Student") {
+            this.collection.find()
             .subscribe((entities) => {
-                this.reflections = entities;
+                this.reflections = entities.filter(e => e.studentFullName ===
+                    (this.userService.getActiveUser().data.firstName + ' ' + this.userService.getActiveUser().data.lastName));
             });
+        }
     }
 
     loadCompliments() {

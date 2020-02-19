@@ -19,8 +19,11 @@ export class CreateComponent implements OnInit {
 
   handleCreate({ firstName, lastName, cost, feeDate, description }:
     { firstName: string, lastName: string, cost: number, feeDate: string, description: string}) {
+
       let teacherFullName = this.userService.getActiveUser().data.firstName + ' ' + this.userService.getActiveUser().data.lastName;
-      this.feeService.create({firstName, lastName, teacherFullName, cost, feeDate, description})
+      let studentFullName = firstName + ' ' + lastName;  
+      
+      this.feeService.create({studentFullName, teacherFullName, cost, feeDate, description})
   }
 
 }

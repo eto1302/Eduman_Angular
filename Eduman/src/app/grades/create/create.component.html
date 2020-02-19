@@ -20,8 +20,8 @@
         <div class="form-group col-6 font-weight-bold text-center">
             <label for="Value">Value</label>
             <input #valueInput="ngModel" type="number" required ngModel id="value" name="value" class="form-control"
-                placeholder="Value" step="0.1">
-            <p *ngIf="valueInput.invalid && valueInput.touched && valueInput.errors?.customMin && valueInput.errors?.customMin">Please enter a value!</p>
+                placeholder="Value" step="1">
+            <p *ngIf="valueInput.invalid && valueInput.touched">Please enter a value!</p>
         </div>
         <div class="form-group col-6  font-weight-bold text-center">
             <label for="Subject">Subject</label>

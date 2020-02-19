@@ -4,6 +4,7 @@ import { DetailsComponent } from './details/details.component';
 import { AllCriticismsComponent } from './all-criticisms/all-criticisms.component';
 import { AllComplimentsComponent } from './all-compliments/all-compliments.component';
 import { AuthGuard } from '../auth-guard';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -49,6 +50,10 @@ const routes: Routes = [
                     isLogged: true,
                     role: ['Student', 'Teacher']
                 }
+            },
+            {
+                path: '**',
+                component: NotFoundComponent
             }
         ]
     }

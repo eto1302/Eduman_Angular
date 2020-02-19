@@ -19,7 +19,8 @@ export class CreateComponent implements OnInit {
   handleCreate({ firstName, lastName, type, eventDate, description }:
     { firstName: string, lastName: string, type: string, eventDate: string, description: string}) {
       let teacherFullName = this.userService.getActiveUser().data.firstName + ' ' + this.userService.getActiveUser().data.lastName;
-      this.eventService.create({firstName, lastName, teacherFullName, type, eventDate, description})
+      let studentFullName = firstName + ' ' + lastName;  
+      this.eventService.create({studentFullName, teacherFullName, type, eventDate, description})
   }
 
 }

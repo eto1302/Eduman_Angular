@@ -8,23 +8,11 @@
         </tr>
     </thead>
     <tbody>
-
-        <!-- @foreach (Subjects subject in (Subjects[])Enum.GetValues(typeof(Subjects)))
-        {
-             if (@Model.FirstOrDefault(m => m.Subject == subject.ToString()) != null)
-             {
-                 <tr>
-                     <th scope="row">@subject</th>
-                     <td>
-                         @{
-                             ViewData["subject"] = subject.ToString();
-                             await Html.RenderPartialAsync("_GradesListingPartial", Model);
-                         }
-                     </td>
-                 </tr>
-             }
-        } -->
-        
-
+        <tr *ngFor="let subject of this.subjects">
+            <th scope="row">{{subject}}</th>
+            <td>                
+                <a *ngFor="let grade of this.getGradesBySubject(subject)" [class]="this.getGradeClass(grade.value)" [routerLink]="[ '/grades/details',grade._id ]">{{grade.value}}</a>                
+            </td>
+        </tr>
     </tbody>
 </table>

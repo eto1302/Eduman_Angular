@@ -9,14 +9,26 @@ import { Router } from '@angular/router';
 })
 export class AllComponent implements OnInit {
 
-  constructor(private gradeService: GradeService, private router: Router) { }
-
-  ngOnInit() {
-    this.gradeService.load();
+  constructor(private gradeService: GradeService, private router: Router) {
   }
 
-  get grades(){ 
-    return this.gradeService.grades;
-  }  
+  async ngOnInit() {
+    await this.gradeService.load();
+  }
+
+  getGradesBySubject(subject: string){ 
+    return this.gradeService.getGradesBySubject(subject);
+  }
+
+  getGradeClass(value: number){
+    if(value >= 5.5) return  "btn green-grade-bg-color text-white margin-right: 10px";
+    if(value < 3) return  "btn red-grade-bg-color text-white";
+    return "btn eduman-secbg-color text-white"
+  }
+
+  get subjects(){
+    
+    return this.gradeService.subjects;
+  }
 
 }

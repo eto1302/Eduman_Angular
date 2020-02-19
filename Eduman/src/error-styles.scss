@@ -1,5 +1,6 @@
 .ng-touched.ng-invalid, 
-.password-match-touched.password-match-invalid {
+.password-match-touched.password-match-invalid,
+.ng {
   border-color: red;
 }
 

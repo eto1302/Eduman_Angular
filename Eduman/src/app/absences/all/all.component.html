@@ -11,7 +11,7 @@
     </thead>
     <tbody>
             <tr *ngFor="let absence of absences">
-            <th scope="row">{{absence.firstName}} {{absence.lastName}}</th>
+            <th scope="row">{{absence.studentFullName}}</th>
                 <td>{{absence.subject}}</td>
                 <td>{{absence.teacherFullName}}</td>
                 <td>{{absence.dateAbsent}}</td>

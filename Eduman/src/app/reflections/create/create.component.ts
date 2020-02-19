@@ -20,8 +20,7 @@ export class CreateComponent implements OnInit {
     { firstName: string, lastName: string, type: string, description: string}) {
       let teacherFullName = this.userService.getActiveUser().data.firstName + ' ' + this.userService.getActiveUser().data.lastName;
       let studentFullName = firstName + ' ' + lastName;
-      let teacherId = this.userService.getActiveUser()._id;
-      this.reflectionsService.create({teacherFullName, description, studentFullName, teacherId, type})
+      this.reflectionsService.create({teacherFullName, description, studentFullName, type})
   }
 
 }
